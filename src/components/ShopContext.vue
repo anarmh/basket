@@ -1,15 +1,15 @@
 <template>
     <div class="contextWrapper">
-        <div class="contextItem">
+        <div class="contextItem" v-for="item in $store.getters.getBaskets" :key="item">
            <div class="image">
-            <img src="" alt="">
+            <img :src="item.image" alt="">
            </div>
            <div class="content">
                     <div class="title">
-                        Title
+                        {{item.title}}
                     </div>
                     <div class="price">
-                        100azn
+                        {{item.price}}$
                     </div>
            </div>
         </div>
@@ -43,12 +43,15 @@ export default{
     filter: drop-shadow(0px 8px 12px rgba(0,0,0,0.15));
     border-radius: 8px;
     min-width: 250px;
-    max-width: 600px;
+    max-width: 500px;
+    width: max-content;
 }
 
 .contextItem{
     display: flex;
     padding: 0 16px;
+    margin-bottom: 8px;
+  
 }
     .image{
         margin-right: 12px;
@@ -74,9 +77,13 @@ export default{
         font-weight: 600;
         color: #262b37 !important;
     }
+    .borderBottom{
+        border-bottom: 1px solid #eff1f3;
+    }
 
-   .camplateBox{
+   .complateBox{
     border-top: 1px solid #dee2e6;
+    display: flex;
     align-items: center;
     justify-content: center;
     padding: 16px 0;

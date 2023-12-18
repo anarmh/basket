@@ -28,7 +28,7 @@ export default{
     },
     methods: {
         onClickBox(data){
-            alert(data)
+            this.$store.dispatch('addBaskets',data)
         },
         getProductsByCategory(category) {
             fetch('https://fakestoreapi.com/products/category/' + category + "?sort=" + this.sortMode)
